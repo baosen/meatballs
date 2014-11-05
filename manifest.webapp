@@ -1,0 +1,23 @@
+{
+    "version":"0.1",
+    "name":"Meatballs Placeholder Name",
+    "description":"Web API Viewer for DHIS2."
+
+},
+    "developer":{
+    "url":"https://wiki.uio.no/mn/ifi/inf5750/index.php/Meatballs",
+        "name":"Meatballs"
+
+},
+    "activities":{
+    "dhis":{
+        "href":"*"
+    }
+},
+    "launchUrl":null,
+    "launch_path":"index.html",
+    "installs_allowed_from":[
+    "*"
+],
+    "default_locale":"en"
+}

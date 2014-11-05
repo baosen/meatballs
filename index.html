@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Meatballs Placeholder Title</title>
+    <!-- Add bootstrap stuff here -->
+
+</head>
+<body>
+    <p id="tabell">
+        <h1>TEST</h1>
+    </p>
+    <script>
+        var test = "test2";
+        document.getElementById("tabell").innerHTML = "hei";
+        function Get(url){
+            var Httpreq = new XMLHttpRequest(); // a new request
+            Httpreq.open("GET",url,false);
+            Httpreq.send(null);
+            return Httpreq.responseText;
+        }
+        var myjson = JSON.parse("/api/resources.json");
+        for (var i = 0; i < myjson.resources.length; i++) {
+            var dispname = myjson.resources[i].displayName;
+            document.getElementById("tabell").appendChild(dispname);
+        }
+    </script>
+
+</body>
