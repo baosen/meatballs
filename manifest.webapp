@@ -1,8 +1,11 @@
 {
     "version":"0.1",
     "name":"Meatballs Placeholder Name",
-    "description":"Web API Viewer for DHIS2."
-
+    "description":"Web API Viewer for DHIS2.",
+    "icons":{
+        "16":null,
+        "48":null,
+        "128":null
 },
     "developer":{
     "url":"https://wiki.uio.no/mn/ifi/inf5750/index.php/Meatballs",
