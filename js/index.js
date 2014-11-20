@@ -10,13 +10,23 @@ function createTable(json) {
     console.log("createTable");
     //$('#resourceTable').empty();
 
-    for(var i = 0; i < json.length; i++) {
-        var res = json[i];
+    console.log("TEST");
+
+    var key, count = 0;
+    for (key in json.resources) {
+        if(json.resources.hasOwnProperty(key)) {
+            count++;
+        }
+    }
+    console.log("count = " + count);
+    console.log(json.length);
+    for(var i = 0; i < count; i++) {
+        var res = json.resources[i];
         var tableString = "<tr>";
+        //console.log(res.singular);
         tableString += "<td>" + res.singular + "</td>";
         tableString += "</tr>";
-        $('resourceTable').append(tableString);
-        //document.getElementById("resourceTable").innerHTML =
+        $('#resourceTable').append(tableString);
 
     }
 
