@@ -14,7 +14,7 @@ function goToJson(link) {
     });
 }
 
-function test() {
+function test(json) {
     console.log("Clicked a button-test-");
 }
 
