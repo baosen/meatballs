@@ -3,34 +3,41 @@ function getResources() {
     $('#resourceTable').empty();
 
     $.get("/api/resources.json", function(data) {
-        console.log(data);
         fillResourceTable(data);
     });
 }
 
+var displayNames = [];
+var currentIndex; // hack.
+
 function displayEntries(object) {
+    var index = 0;
     for (var key in object) {
         var value = object[key];
         var table = "<tr>";
         table += "<td>" + value.displayName + "</td>";
-        table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json' + '\')">Go to</button></td>';
+        table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to</button></td>';
         table += "</tr>";
         $('#resourceTable').append(table);
+        displayNames.push(value.displayName);
+        index++;
     }
+    console.log(displayNames);
 }
 
-function getResourceName(json) {
+function getResourceObject(json) {
     return Object.keys(json)[1];
 }
 
 function showResource(json) {
 	$('#resourceDisplay').empty();
 
-    var resource = json[getResourceName(json)];
+    var resource = json[getResourceObject(json)];
 
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
-    var info = "<tr><td>Total: " + json.pager.total + "</td></tr>";
+    var info = '<b>' + displayNames[currentIndex] + '</b><br>';
+    info += "<tr><td>Total: " + json.pager.total + "</td></tr>";
 	$('#resourceDisplay').append(info);
 
 	var table = "<tr>";
@@ -44,7 +51,9 @@ function showResource(json) {
 	$('#resourceDisplay').append(table);
 }   
 
-function goToResource(link) {
+function goToResource(link, index) {
+    currentIndex = index;
+
     $.get(link, function(data) {
         showResource(data);
     });
