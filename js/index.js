@@ -12,7 +12,7 @@ function displayEntries(object) {
     for (var key in object) {
         var value = object[key];
         var table = "<tr>";
-        table += "<td>" + value.singular + "</td>";
+        table += "<td>" + value.displayName + "</td>";
         table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json' + '\')">Go to</button></td>';
         table += "</tr>";
         $('#resourceTable').append(table);
