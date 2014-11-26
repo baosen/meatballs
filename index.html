@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
 	<head>
@@ -8,7 +8,15 @@
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="js/index.js"></script>
 		<script src="js/entries.js"></script>
+
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<script src="js/bootstrap.min.js"></script>
+
 		<style>
+			body {
+				font-family: 'Open Sans', sans-serif;
+			}
 			#navigationBar {
 				position: absolute;
 				left: 0px;
@@ -19,23 +27,22 @@
 				position: absolute;
 				margin-left: 300px;
 			}
-			<!-- source: http://learnlayout.com/position-example.html -->
 		</style>
-
-	    <!-- TODO: Add bootstrap stuff here -->
 	</head>
+
 	<body>
 	    <button onclick="getResources()">Home</button> <!--Simple home button for use while testing -->
 
-		<div id="navigationBar">
-    		<table class="table" id="resourceTable">
-    		    <tr>
-    		        <th>Resources</th>
-    		    </tr>
-    		</table>
+		<div id="navigationBar" class="container">
+			<table id="resourceTable">
+				<tr>
+					<th>Resources</th>
+				</tr>
+			</table>
 		</div>
 
-		<div id="resourceDisplay">See something here...</div>
+		<table id="resourceDisplay" class="table">
+		</table>
 	
 	    <script>
 	    $(document).ready(function() {
