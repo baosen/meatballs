@@ -13,8 +13,17 @@ function displayEntries(object) {
         var value = object[key];
         var table = "<tr>";
         table += "<td>" + value.singular + "</td>";
+		table += "<td><button onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
         table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json' + '\')">Go to</button></td>';
         table += "</tr>";
+
+		table += "<tr><td><div id=\"" + value.singular + "\" style=\"display:none\">";
+
+		for(key2 in value) {
+			var value2 = value[key2];
+			table += "<p>" + key2 + ": " + value2 + "</p>"; // maybe do some nice formatting here...
+		}
+		table += "</div></td></tr>";
         $('#resourceTable').append(table);
     }
 }
@@ -42,7 +51,7 @@ function showResource(json) {
 	table += '<td><button onclick="alert(\'Not implemented yet...\')">Next page</button></td>';
 
 	$('#resourceDisplay').append(table);
-}   
+}
 
 function goToResource(link) {
     $.get(link, function(data) {
@@ -52,4 +61,9 @@ function goToResource(link) {
 
 function fillResourceTable(json) {
 	displayEntries(json.resources);
+}
+
+function showDetails(id) {
+	var idString = "#" + id;
+	$(idString).slideToggle("slow");
 }
