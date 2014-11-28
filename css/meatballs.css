@@ -1,0 +1,28 @@
+/*!
+Meatballs Web API Browser */
+
+#navigationBar {
+    position: absolute;
+    left: 0;
+    width: 550px;
+}
+
+#resourceDisplay {
+    position: absolute;
+    margin-left: 550px;
+}
+/* source: http://learnlayout.com/position-example.html */
+
+
+.resourceList>tbody>tr>td {
+    /* padding: 8px; */
+    padding: 6px;
+    line-height: 1.42857143;
+    /* vertical-align: top; */
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.resourceButtonsAlign {
+    float: right;
+}

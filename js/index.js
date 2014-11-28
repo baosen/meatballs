@@ -14,10 +14,13 @@ function displayEntries(object) {
     var index = 0;
     for (var key in object) {
         var value = object[key];
-        var table = "<tr>";
-        table += "<td>" + value.displayName + "</td>";
-		table += "<td><button onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
-        table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to</button></td>';
+        var table = "<tbody>";
+        table += "<tr>";
+            table += "<td>" + value.displayName + "</td>";
+                table += "<div class=\"resourceButtonsAlign\">";
+		            table += "<td><button onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
+                    table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to</button></td>';
+                table += "</div>";
         table += "</tr>";
 
 		table += "<tr><td><div id=\"" + value.singular + "\" style=\"display:none\">";
@@ -26,7 +29,7 @@ function displayEntries(object) {
 			var value2 = value[key2];
 			table += "<p>" + key2 + ": " + value2 + "</p>"; // maybe do some nice formatting here...
 		}
-		table += "</div></td></tr>";
+		table += "</div></td></tr></tbody>";
         $('#resourceTable').append(table);
         displayNames.push(value.displayName);
         index++;
