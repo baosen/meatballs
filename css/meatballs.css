@@ -4,12 +4,12 @@ Meatballs Web API Browser */
 #navigationBar {
     position: absolute;
     left: 0;
-    width: 550px;
+    width: 650px;
 }
 
 #resourceDisplay {
     position: absolute;
-    margin-left: 550px;
+    margin-left: 650px;
 }
 /* source: http://learnlayout.com/position-example.html */
 
@@ -25,4 +25,21 @@ Meatballs Web API Browser */
 
 .resourceButtonsAlign {
     float: right;
+}
+.logo{
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+
+}
+.resourceColSpan {
+
+}
+
+.btn .badge {
+    margin-left:5px;
+}
+.tblOverflow{
+    width: 400px;
+    float:left;
 }

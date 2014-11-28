@@ -16,20 +16,25 @@ function displayEntries(object) {
         var value = object[key];
         var table = "<tbody>";
         table += "<tr>";
-            table += "<td>" + value.displayName + "</td>";
+            table += "<td>" + value.displayName +  "</td>";
                 table += "<div class=\"resourceButtonsAlign\">";
-		            table += "<td><button onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
-                    table += "<td>" + '<button onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to</button></td>';
+		            table += "<td><button class='btn' onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
+                    table += "<td>" + '<button class=\"btn btn-primary\" onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to:&nbsp;<span class="badge">4</span></button></td>';
                 table += "</div>";
         table += "</tr>";
 
 		table += "<tr><td><div id=\"" + value.singular + "\" style=\"display:none\">";
 
-		for(key2 in value) {
-			var value2 = value[key2];
-			table += "<p>" + key2 + ": " + value2 + "</p>"; // maybe do some nice formatting here...
-		}
-		table += "</div></td></tr></tbody>";
+        table += "<table class='table'>"
+            table += "<tbody>"
+                for(key2 in value) {
+                    var value2 = value[key2];
+                    table += "<tr><td>" + key2 + "</td><td class='tblOverflow' colspan='3'>" + value2 + "</td></tr>"; // maybe do some nice formatting here...
+		        }
+            table += "</tbody>"
+        table += "</table>"
+
+        table += "</div></td></tr></tbody>";
         $('#resourceTable').append(table);
         displayNames.push(value.displayName);
         index++;

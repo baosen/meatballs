@@ -21,29 +21,35 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" onclick="getResources()">
 
-                      <!--  <button onclick="getResources()">Homies!!</button> <!--Simple home button for use while testing -->
-                        <img alt="Meatballs" src="...">
+                      <!--  <button onclick="getResources()">Home</button> <!--Simple home button for use while testing -->
+                        <img alt="Meatballs" src="images/identicon_meatballs.png" class="logo">
                     </a>
+                    <h3 style="width:400px">Meatballs Web API Browser</h3>
                 </div>
             </div>
         </nav>
-		<div id="navigationBar">
-    		<table class="table table-striped resourceList" id="resourceTable">
-    		    <thead>
-                <tr>
-                    <th>Resources</th>
-                </tr>
-    		    </thead>
+        <div class="container-fluid">
+            <div id="navigationBar">
+                <table class="table table-striped resourceList" id="resourceTable">
+                    <thead>
+                        <tr>
+                             <th>Resources</th>
+                        </tr>
+                    </thead>
 
-    		</table>
-		</div>
+                </table>
+            </div>
 
-		<div id="resourceDisplay">See something here...</div>
 
-	    <script>
-	    $(document).ready(function() {
-	        getResources();
-	    });
-	    </script>
+
+
+            <div id="resourceDisplay">See something here...</div>
+
+            <script>
+            $(document).ready(function() {
+                getResources();
+            });
+            </script>
+        </div>
 	</body>
 </html>
