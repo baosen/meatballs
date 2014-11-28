@@ -1,1 +1,29 @@
-{"version":"0.1","name":"Meatballs development","launch_path":"index.html","installs_allowed_from":["*"],"default_locale":"en","description":"Web API Viewer for DHIS2.","icons":{"16":null,"48":null,"128":null},"developer":{"url":"https://wiki.uio.no/mn/ifi/inf5750/index.php/Meatballs","name":"Meatballs-dev","company":null,"email":null},"activities":{"dhis":{"href":"http://inf5750-28.uio.no"}},"folderName":null,"baseUrl":null,"launchUrl":null}
+{
+  "version": "0.1",
+  "name": "Meatballs Web browser API",
+  "launch_path": "index.html",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "en",
+  "description": "Web API Viewer for DHIS2.",
+  "icons": {
+    "16": null,
+    "48": null,
+    "128": null
+  },
+  "developer": {
+    "url": "https:\/\/wiki.uio.no\/mn\/ifi\/inf5750\/index.php\/Meatballs",
+    "name": "Meatballs",
+    "company": null,
+    "email": null
+  },
+  "activities": {
+    "dhis": {
+      "href": "http:\/\/inf5750-28.uio.no"
+    }
+  },
+  "folderName": null,
+  "baseUrl": null,
+  "launchUrl": null
+}
