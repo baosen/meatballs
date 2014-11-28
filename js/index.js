@@ -46,8 +46,38 @@ function showResource(json) {
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
     var info = '<b>' + displayNames[currentIndex] + '</b><br>';
-    info += "<tr><td>Total: " + json.pager.total + "</td></tr>";
-	$('#resourceDisplay').append(info);
+    info += "Total: " + json.pager.total;
+    if (json.pager.pageCount > 1) {
+        info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount;
+	    if(json.pager.page == 1) {
+            var nextPage = json.pager.nextPage;
+            //Removes the link part after a ?, the link is on the form "organisationUnits?page=3"
+            //but to get a JSON-object we can not simply append .json to this. The link we need will in this example be:
+            //organisationUnits.json?page=3
+            nextPage = nextPage.split("\?")[0];
+            nextPage += ".json?page=";
+            nextPage += json.pager.page + 1;
+            console.log(nextPage);
+            var addString = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";           
+            console.log(addString);
+            info += addString;
+        } else if (json.pager.page == json.pager.pageCount) {
+            var previousPage = json.pager.prevPage;
+            previousPage = nextPage.split("?")[0];
+            info += '<td><button onclick="goToResource(' + previousPage + '.json?page=' (json.pager.page - 1) + ')">Previous page</button></td>';
+        } else {
+            var previousPage = json.pager.prevPage;
+            previousPage = nextPage.split("?")[0];
+            info += '<td><button onclick="goToResource(' + previousPage + '.json?page=' (json.pager.page - 1) + ')">Previous page</button></td>';
+            var nextPage = json.pager.nextPage;
+            nextPage = nextPage.split("?")[0];
+            info += '<td><button onclick="goToResource(' + nextPage + '.json?page=' (json.pager.page + 1) + ')">Next page</button></td>';
+        }
+        info +="</tr>"
+    } else {
+
+    }
+    $('#resourceDisplay').append(info);
 
 	var table = "<tr>";
     for (var key in resource) {
@@ -55,10 +85,21 @@ function showResource(json) {
 		table += "<td>" + value.name + "</td>";
 		table += "</tr>";
     }
-	table += '<td><button onclick="alert(\'Not implemented yet...\')">Next page</button></td>';
+
+	
 
 	$('#resourceDisplay').append(table);
 }
+
+
+function updateResource(link) {
+    $.get(link, function(data) {
+        console.log("updateResource");
+        console.log(data);
+        //showResource(data);
+    });
+}
+
 
 function goToResource(link, index) {
     currentIndex = index;
