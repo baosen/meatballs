@@ -1,50 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 
 <html lang="en">
 	<head>
 	    <meta charset="utf-8">
 	    <title>Web API browser by meatballs</title>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/meatballs.css">
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="js/index.js"></script>
+		<script src="js/entries.js"></script> <!-- is this used? -->
 
-		<!-- Bootstrap -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<script src="js/bootstrap.min.js"></script>
-
-		<style>
-			body {
-				font-family: 'Open Sans', sans-serif;
-			}
-			#navigationBar {
-				position: absolute;
-				left: 0px;
-				width: 550px;
-			}
-
-			#resourceDisplay {
-				position: absolute;
-				margin-left: 550px;
-			}
-		</style>
+        <script src="js/bootstrap.min.js"></script>
 	</head>
-
 	<body>
-	    <button onclick="getResources()">Home</button> <!--Simple home button for use while testing -->
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" onclick="getResources()">
 
-		<div id="navigationBar" class="container">
-			<b>Resources</b><br>
-			<table id="resourceTable">
-				<tr>
-				</tr>
-			</table>
+                      <!--  <button onclick="getResources()">Homies!!</button> <!--Simple home button for use while testing -->
+                        <img alt="Meatballs" src="...">
+                    </a>
+                </div>
+            </div>
+        </nav>
+		<div id="navigationBar">
+    		<table class="table table-striped resourceList" id="resourceTable">
+    		    <thead>
+                <tr>
+                    <th>Resources</th>
+                </tr>
+    		    </thead>
+
+    		</table>
 		</div>
 
-		<table id="resourceDisplay" class="table">
-		</table>
-	
+		<div id="resourceDisplay">See something here...</div>
+
 	    <script>
 	    $(document).ready(function() {
 	        getResources();
