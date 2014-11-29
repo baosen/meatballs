@@ -4,12 +4,12 @@ Meatballs Web API Browser */
 #navigationBar {
     position: absolute;
     left: 0;
-    width: 650px;
+    width: 550px;
 }
 
 #resourceDisplay {
     position: absolute;
-    margin-left: 650px;
+    margin-left: 550px;
 }
 /* source: http://learnlayout.com/position-example.html */
 
@@ -21,6 +21,12 @@ Meatballs Web API Browser */
     /* vertical-align: top; */
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
+}
+
+td.resourceHeader {
+    width: 380px;
+    font-size:1.2em ;
+    vertical-align: middle;
 }
 
 .resourceButtonsAlign {
@@ -39,7 +45,4 @@ Meatballs Web API Browser */
 .btn .badge {
     margin-left:5px;
 }
-.tblOverflow{
-    width: 400px;
-    float:left;
-}
+

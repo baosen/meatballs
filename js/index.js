@@ -16,7 +16,7 @@ function displayEntries(object) {
         var value = object[key];
         var table = "<tbody>";
         table += "<tr>";
-            table += "<td>" + value.displayName +  "</td>";
+            table += "<td class='resourceHeader'>" + value.displayName +  "</td>";
                 table += "<div class=\"resourceButtonsAlign\">";
 		            table += "<td><button class='btn' onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
                     table += "<td>" + '<button class=\"btn btn-primary\" onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to:&nbsp;<span class="badge">4</span></button></td>';
@@ -29,7 +29,14 @@ function displayEntries(object) {
             table += "<tbody>"
                 for(key2 in value) {
                     var value2 = value[key2];
-                    table += "<tr><td>" + key2 + "</td><td class='tblOverflow' colspan='3'>" + value2 + "</td></tr>"; // maybe do some nice formatting here...
+                    if (key2 === 'href'){
+                        var url =  value2;
+                        var last_part = url.substring(url.lastIndexOf('/') + 1);
+                        var first_part = url.replace(last_part, " ");
+                        table += "<tr><td>" + key2 + "</td><td>" +  first_part  + "<br /> " + last_part + "</td></tr>";
+                    }else {
+                        table += "<tr><td>" + key2 + "</td><td>" + value2 + "</td></tr>";
+                    }// maybe do some nice formatting here...
 		        }
             table += "</tbody>"
         table += "</table>"
