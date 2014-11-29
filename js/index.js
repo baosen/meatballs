@@ -29,11 +29,12 @@ function displayEntries(object) {
             table += "<tbody>"
                 for(key2 in value) {
                     var value2 = value[key2];
+                    /* breaks up url's on the last slash to save space */
                     if (key2 === 'href'){
                         var url =  value2;
                         var last_part = url.substring(url.lastIndexOf('/') + 1);
-                        var first_part = url.replace(last_part, " ");
-                        table += "<tr><td>" + key2 + "</td><td>" +  first_part  + "<br /> " + last_part + "</td></tr>";
+                        var first_part = url.replace(last_part, "<wbr />");
+                        table += "<tr><td>" + key2 + "</td><td>" +  first_part  +  last_part + "</td></tr>";
                     }else {
                         table += "<tr><td>" + key2 + "</td><td>" + value2 + "</td></tr>";
                     }// maybe do some nice formatting here...
