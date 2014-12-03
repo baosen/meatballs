@@ -119,6 +119,7 @@ function showResource(json) {
     for (var key in resource) {
 		var value = resource[key];
 		table += "<td>" + value.name + "</td>";
+        table += "<td><button onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
 		table += "</tr>";
     }
 
@@ -152,4 +153,32 @@ function fillResourceTable(json) {
 function showDetails(id) {
 	var idString = "#" + id;
 	$(idString).slideToggle("slow");
+}
+
+
+function getInstance(link) {
+    $.get(link, function(data) {
+        console.log("getInstance");
+        console.log(data);
+        displayInstance(data);
+    });
+
+}
+
+function displayInstance(json) {
+    console.log("displayInstance");
+    
+
+
+    $('instanceDiplay').empty();
+
+    var instance = json;
+
+    var info = "";
+    console.log(instance.name);
+    info += instance.name + " ,";
+    info += instance.id;
+
+    $('instanceDisplay').append(info);
+
 }
