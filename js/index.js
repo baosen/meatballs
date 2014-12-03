@@ -51,13 +51,13 @@ function displayEntries(object) {
 }
 
 function getResourceObject(json) {
-    return Object.keys(json)[1];
+    return json[Object.keys(json)[1]];
 }
 
 function showResource(json) {
 	$('#resourceDisplay').empty();
 
-    var resource = json[getResourceObject(json)];
+    var resource = getResourceObject(json);
 
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
