@@ -7,18 +7,16 @@ Meatballs Web API Browser */
     width: 550px;
 }
 
+#instanceDisplay {
+    position: absolute;
+    margin-left: 900px;
+}
+
 #resourceDisplay {
     position: absolute;
     margin-left: 550px;
 }
 /* source: http://learnlayout.com/position-example.html */
-
-#instanceDisplay  {
-    position: relative;
-    right: 0;
-    top: 0;
-    background-color: green;
-}
 
 .resourceList>tbody>tr>td {
     /* padding: 8px; */
@@ -39,12 +37,14 @@ td.resourceHeader {
 .resourceButtonsAlign {
     float: right;
 }
+
 .logo{
     width: 32px;
     height: 32px;
     cursor: pointer;
 
 }
+
 .resourceColSpan {
 
 }

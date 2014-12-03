@@ -123,11 +123,8 @@ function showResource(json) {
 		table += "</tr>";
     }
 
-	
-
 	$('#resourceDisplay').append(table);
 }
-
 
 function updateResource(link) {
     $.get(link, function(data) {
@@ -136,7 +133,6 @@ function updateResource(link) {
         showResource(data);
     });
 }
-
 
 function goToResource(link, index) {
     currentIndex = index;
@@ -155,22 +151,18 @@ function showDetails(id) {
 	$(idString).slideToggle("slow");
 }
 
-
 function getInstance(link) {
     $.get(link, function(data) {
         console.log("getInstance");
         console.log(data);
         displayInstance(data);
     });
-
 }
 
 function displayInstance(json) {
     console.log("displayInstance");
     
-
-
-    $('instanceDiplay').empty();
+    $('#instanceDisplay').empty();
 
     var instance = json;
 
@@ -179,6 +171,5 @@ function displayInstance(json) {
     info += instance.name + " ,";
     info += instance.id;
 
-    $('instanceDisplay').append(info);
-
+    $('#instanceDisplay').append(info);
 }
