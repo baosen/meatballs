@@ -28,18 +28,25 @@
             </div>
         </nav>
         <div class="container-fluid">
-            <div id="navigationBar">
-                <table class="table table-striped resourceList" id="resourceTable">
-                </table>
+
+            <div class="col-md-4">
+                <div id="navigationBar">
+                    <table class="table table-striped resourceList" id="resourceTable">
+                    </table>
+                </div>
             </div>
 
-            <div id="resourceDisplay">See something here...</div>
-            <div id="instanceDisplay"></div>
+            <div class="col-md-4">
+                <div id="resourceDisplay">See something here...</div>
+            </div>
 
+            <div class="col-md-4">
+                <div id="instanceDisplay"></div>
+            </div>
             <script>
-            $(document).ready(function() {
-                getResources();
-            });
+                $(document).ready(function() {
+                    getResources();
+                });
             </script>
         </div>
 	</body>

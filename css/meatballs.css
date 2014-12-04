@@ -6,7 +6,7 @@ Meatballs Web API Browser */
     left: 0;
     width: 550px;
 }
-
+/*
 #instanceDisplay {
     position: absolute;
     margin-left: 900px;
@@ -15,7 +15,7 @@ Meatballs Web API Browser */
 #resourceDisplay {
     position: absolute;
     margin-left: 550px;
-}
+}*/
 /* source: http://learnlayout.com/position-example.html */
 
 .resourceList>tbody>tr>td {

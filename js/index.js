@@ -33,7 +33,7 @@ function displayEntries(object) {
                     if (key2 === 'href'){
                         var url =  value2;
                         var last_part = url.substring(url.lastIndexOf('/') + 1);
-                        var first_part = url.replace(last_part, "<wbr />");
+                        var first_part = url.replace(last_part, "<wbr />&#8203;"); // Hack to add non-width characters for breaking up url without space etc.
                         table += "<tr><td>" + key2 + "</td><td>" +  first_part  +  last_part + "</td></tr>";
                     }else {
                         table += "<tr><td>" + key2 + "</td><td>" + value2 + "</td></tr>";
@@ -115,12 +115,15 @@ function showResource(json) {
     }
     $('#resourceDisplay').append(info);
 
-	var table = "<tr>";
+	var table = "<table>";
     for (var key in resource) {
 		var value = resource[key];
+        table = "</tr>";
 		table += "<td>" + value.name + "</td>";
-        table += "<td><button onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
+        table += "<td><button class=\"btn\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
 		table += "</tr>";
+        table += "</table>";
+
     }
 
 	$('#resourceDisplay').append(table);
