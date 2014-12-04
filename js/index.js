@@ -115,13 +115,35 @@ function showResource(json) {
     }
     $('#resourceDisplay').append(info);
 
-	var table = "<tr>";
+	var table = "<table class='table'>";
     for (var key in resource) {
 		var value = resource[key];
+		table += "<tr>";
 		table += "<td>" + value.name + "</td>";
-        table += "<td><button onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
+		table += "<td><button class='btn' onclick='showDetails(\"" + value.id + "\")'>Details</button></td>";
+        table += "<td><button onclick=\"getInstance(\'" + value.href + ".json\')\">View</button></td>";
 		table += "</tr>";
-    }
+
+		table += "<tr><td><div id =\"" + value.id + "\" style=\"display:none\">";
+		table += "<table class='table'>";
+		table += "<tbody>";
+		for(key2 in value) {
+			var value2 = value[key2];
+			if(key2 === 'href') {
+				var url = value2;
+				var last_part = url.substring(url.lastIndexOf('/') + 1);
+				var first_part = url.replace(last_part, "<wbr />");
+				table += "<tr><td>" + key2 + "</td><td>" + first_part + last_part + "</td></tr>";
+			} else {
+				table += "<tr><td>" + key2 + "</td><td>" + value2 + "</td></tr>";
+			}
+		}
+		table += "</tbody>";
+		table += "</table>";
+
+		table += "</div></td></tr>";
+	}
+	table += "</table>";
 
 	$('#resourceDisplay').append(table);
 }
@@ -158,6 +180,7 @@ function getInstance(link) {
         console.log(data);
         displayInstance(data);
     });
+	$('html, body').animate({scrollTop: 0}, 'fast');
 }
 
 function displayInstance(json) {
