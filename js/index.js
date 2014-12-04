@@ -74,7 +74,7 @@ function showResource(json) {
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
             console.log(nextPage);
-            var addString = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";           
+            var addString = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             console.log(addString);
             info += addString;
         } else if (json.pager.page == json.pager.pageCount) {
@@ -93,7 +93,7 @@ function showResource(json) {
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";    
+            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         } else {
             var previousPage = json.pager.prevPage;
@@ -106,7 +106,7 @@ function showResource(json) {
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";    
+            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         }
         info +="</tr>"
@@ -140,6 +140,7 @@ function goToResource(link, index) {
     $.get(link, function(data) {
         showResource(data);
     });
+	$('html, body').animate({scrollTop: 0}, 'fast');
 }
 
 function fillResourceTable(json) {
@@ -161,7 +162,7 @@ function getInstance(link) {
 
 function displayInstance(json) {
     console.log("displayInstance");
-    
+
     $('#instanceDisplay').empty();
 
     var instance = json;
@@ -171,7 +172,7 @@ function displayInstance(json) {
     info += "<b>" + instance.name + "</b><br>";
     $('#instanceDisplay').append(info);
 
-    
+
     var str = JSON.stringify(instance, null, "\n");
     var indentation = -1;
     var array = str.split("\n");
