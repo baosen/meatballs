@@ -66,7 +66,7 @@ function showResource(json) {
 
     info += "<p> Total: " + json.pager.total;
     if (json.pager.pageCount > 1) {
-        info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount + "</p>";
+        info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount + "&nbsp;";
 	    if(json.pager.page == 1) {
             var nextPage = json.pager.nextPage;
             //Removes the link part after a ?, the link is on the form "organisationUnits?page=3"
@@ -111,7 +111,7 @@ function showResource(json) {
             var addString2 = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         }
-        info +="</tr>"
+        info +="</p>"
     } else {
 
     }
@@ -143,6 +143,7 @@ function goToResource(link, index) {
         showResource(data);
     });
 }
+
 
 function fillResourceTable(json) {
 	displayEntries(json.resources);

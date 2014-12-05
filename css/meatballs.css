@@ -22,17 +22,17 @@ Meatballs Web API Browser */
     /* padding: 8px; */
     padding: 6px;
     line-height: 1.42857143;
-    /* vertical-align: top; */
+    vertical-align: middle;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
 
 }
-
+/*
 td.resourceHeader {
     width: 380px;
     font-size:1.2em ;
     vertical-align: middle;
-}
+}*/
 
 .resourceButtonsAlign {
     float: right;
@@ -54,5 +54,5 @@ td.resourceHeader {
 }
 
 h3 .headerText {
-    margin: 5px;
+    margin-top: 0px;
 }
