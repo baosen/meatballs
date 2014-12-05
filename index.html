@@ -28,20 +28,25 @@
             </div>
         </nav>
         <div class="container-fluid">
-
+        <!-- Column 1: Resource overview -->
             <div class="col-md-4">
+                <h3 class="headerText">Available resources</h3>
                 <div id="navigationBar">
                     <table class="table table-striped resourceList" id="resourceTable">
                     </table>
                 </div>
             </div>
-
+            <!-- Column 2: Resource details -->
             <div class="col-md-4">
-                <div id="resourceDisplay">See something here...</div>
+                <table class="table">
+                    <div id="resourceDisplay">See something here...</div>
+                </table>
             </div>
-
+            <!-- Column 2: Instance details -->
             <div class="col-md-4">
-                <div id="instanceDisplay"></div>
+                <div id="instanceDisplay">
+                    <h3> Placeholder<h3>
+                </div>
             </div>
             <script>
                 $(document).ready(function() {

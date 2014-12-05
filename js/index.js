@@ -12,6 +12,7 @@ var currentIndex; // hack.
 
 function displayEntries(object) {
     var index = 0;
+
     for (var key in object) {
         var value = object[key];
         var table = "<tbody>";
@@ -61,10 +62,11 @@ function showResource(json) {
 
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
-    var info = '<b>' + displayNames[currentIndex] + '</b><br>';
-    info += "Total: " + json.pager.total;
+    var info = '<h3>' + displayNames[currentIndex] + '</h3>';
+
+    info += "<p> Total: " + json.pager.total;
     if (json.pager.pageCount > 1) {
-        info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount;
+        info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount + "</p>";
 	    if(json.pager.page == 1) {
             var nextPage = json.pager.nextPage;
             //Removes the link part after a ?, the link is on the form "organisationUnits?page=3"
@@ -115,12 +117,12 @@ function showResource(json) {
     }
     $('#resourceDisplay').append(info);
 
-	var table = "<tr>";
+	var table = "<tbody><tr>";
     for (var key in resource) {
 		var value = resource[key];
 		table += "<td>" + value.name + "</td>";
-        table += "<td><button onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
-		table += "</tr>";
+        table += "<td><button class=\"btn\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
+		table += "</tr></tbody>";
     }
 
 	$('#resourceDisplay').append(table);

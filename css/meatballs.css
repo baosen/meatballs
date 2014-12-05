@@ -1,12 +1,12 @@
 /*!
 Meatballs Web API Browser */
-
+/*
 #navigationBar {
     position: absolute;
     left: 0;
     width: 550px;
 }
-/*
+
 #instanceDisplay {
     position: absolute;
     margin-left: 900px;
@@ -53,3 +53,6 @@ td.resourceHeader {
     margin-left:5px;
 }
 
+h3 .headerText {
+    margin: 5px;
+}
