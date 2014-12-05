@@ -24,7 +24,7 @@ function displayEntries(object) {
                 table += "</div>";
         table += "</tr>";
 
-		table += "<tr><td><div id=\"" + value.singular + "\" style=\"display:none\">";
+		table += "<tr><td colspan=\"3\" ><div id=\"" + value.singular + "\" style=\"display:none\">";
 
         table += "<table class='table resourceList'>"
             table += "<tbody>"
