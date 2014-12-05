@@ -76,7 +76,7 @@ function showResource(json) {
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
             console.log(nextPage);
-            var addString = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";           
+            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             console.log(addString);
             info += addString;
         } else if (json.pager.page == json.pager.pageCount) {
@@ -84,31 +84,31 @@ function showResource(json) {
             previousPage = previousPage.split("?")[0];
             previousPage += ".json?page=";
             previousPage += json.pager.page - 1;
-            var addString = "<button onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
         } else if (json.pager.page == 2) {
             var previousPage = json.pager.prevPage;
             previousPage += ".json";
-            var addString = "<button onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
             var nextPage = json.pager.nextPage;
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";    
+            var addString2 = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         } else {
             var previousPage = json.pager.prevPage;
             previousPage = previousPage.split("?")[0];
             previousPage += ".json?page=";
             previousPage += json.pager.page - 1;
-            var addString = "<button onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
             var nextPage = json.pager.nextPage;
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";    
+            var addString2 = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         }
         info +="</tr>"
