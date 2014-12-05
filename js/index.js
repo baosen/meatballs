@@ -26,7 +26,7 @@ function displayEntries(object) {
 
 		table += "<tr><td><div id=\"" + value.singular + "\" style=\"display:none\">";
 
-        table += "<table class='table'>"
+        table += "<table class='table resourceList'>"
             table += "<tbody>"
                 for(key2 in value) {
                     var value2 = value[key2];
@@ -62,9 +62,9 @@ function showResource(json) {
 
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
-    var info = '<h3>' + displayNames[currentIndex] + '</h3>';
+    var info = '<h3 class=\"headerText\">' + displayNames[currentIndex] + '</h3>';
 
-    info += "<p> Total: " + json.pager.total;
+    info += "<p class=\"paginator\"> Total: " + json.pager.total;
     if (json.pager.pageCount > 1) {
         info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount + "&nbsp;";
 	    if(json.pager.page == 1) {
@@ -76,7 +76,7 @@ function showResource(json) {
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
             console.log(nextPage);
-            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
+            var addString = "<button class=\"btn resourceButtonsAlign\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             console.log(addString);
             info += addString;
         } else if (json.pager.page == json.pager.pageCount) {
@@ -84,31 +84,31 @@ function showResource(json) {
             previousPage = previousPage.split("?")[0];
             previousPage += ".json?page=";
             previousPage += json.pager.page - 1;
-            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn btnSpacer resourceButtonsAlign\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
         } else if (json.pager.page == 2) {
             var previousPage = json.pager.prevPage;
             previousPage += ".json";
-            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn btnSpacer resourceButtonsAlign\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
             var nextPage = json.pager.nextPage;
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
+            var addString2 = "<button class=\"btn resourceButtonsAlign\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         } else {
             var previousPage = json.pager.prevPage;
             previousPage = previousPage.split("?")[0];
             previousPage += ".json?page=";
             previousPage += json.pager.page - 1;
-            var addString = "<button class=\"btn\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
+            var addString = "<button class=\"btn btnSpacer resourceButtonsAlign\" onclick=\"updateResource(\'" + previousPage + "\')\">Previous Page</button>";
             info += addString;
             var nextPage = json.pager.nextPage;
             nextPage = nextPage.split("\?")[0];
             nextPage += ".json?page=";
             nextPage += json.pager.page + 1;
-            var addString2 = "<button class=\"btn\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
+            var addString2 = "<button class=\"btn resourceButtonsAlign\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         }
         info +="</p>"
@@ -117,14 +117,16 @@ function showResource(json) {
     }
     $('#resourceDisplay').append(info);
 
-	var table = "<tbody><tr>";
+	var table = "<table class=\"table table-striped resourceList\">";
+
+    table += "<tbody><tr class=\"resourceHeader\">";
     for (var key in resource) {
 		var value = resource[key];
 		table += "<td>" + value.name + "</td>";
-        table += "<td><button class=\"btn\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
-		table += "</tr></tbody>";
+        table += "<td><button class=\"btn resourceButtonsAlign\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
+		table += "</tr>";
     }
-
+    table += "</tbody></table>";
 	$('#resourceDisplay').append(table);
 }
 
@@ -171,8 +173,9 @@ function displayInstance(json) {
 
     var info = "";
     console.log(instance.name);
-    info += instance.name + " ,";
-    info += instance.id;
+    info += "<h3 class=\"headerText\">" + instance.name + '</h3>'
+
+    info += "<p style='border-top: 1px solid #ddd'>instance id:" + instance.id + "</p>";
 
     $('#instanceDisplay').append(info);
 }

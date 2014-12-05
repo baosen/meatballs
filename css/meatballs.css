@@ -25,19 +25,25 @@ Meatballs Web API Browser */
     vertical-align: middle;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-
 }
-/*
+.resourceList{
+    margin-bottom: 0px;
+}
+
+
 td.resourceHeader {
     width: 380px;
-    font-size:1.2em ;
+    font-size: 1.2em;
     vertical-align: middle;
-}*/
-
-.resourceButtonsAlign {
-    float: right;
 }
 
+
+.resourceButtonsAlign {
+   text-align: right;
+}
+.btnSpacer {
+    padding-right: 4px;
+}
 .logo{
     width: 32px;
     height: 32px;
@@ -53,6 +59,11 @@ td.resourceHeader {
     margin-left:5px;
 }
 
-h3 .headerText {
+h3.headerText {
     margin-top: 0px;
+}
+
+p.paginator {
+    padding-top: 7px;
+    border-top: 1px solid #ddd;
 }
