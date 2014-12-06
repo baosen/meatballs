@@ -178,4 +178,40 @@ function displayInstance(json) {
     info += "<p style='border-top: 1px solid #ddd'>instance id:" + instance.id + "</p>";
 
     $('#instanceDisplay').append(info);
+
+    var str = JSON.stringify(instance, null, "\n");
+    var indentation = -1;
+    var array = str.split("\n");
+    console.log("array:");
+    console.log(array);
+    var toPrint = "";
+
+    for (line in array) {
+        if (array[line] === "") {
+
+        } else if (array[line] === "{") {
+            console.log("Indentation +1");
+            indentation += 1;
+        } else if (array[line] === "}" || array[line] === "}," ) {
+            indentation -= 1;
+            console.log("Indentation -1");
+        } else {
+            if (array[line].substr(array[line].length - 1) === "{"){
+                console.log("At end of line, Indentation +1");
+                for (var i = 0; i < indentation; i += 1) {
+                    toPrint += "";
+                }
+                indentation += 1;
+                toPrint += "<p style='border-top: 1px solid #ddd'>" + array[line].substr(0, array[line].length - 1) + "</p>";
+            } else {
+                for (var i = 0; i < indentation; i += 1) {
+                    toPrint += "\t   ";
+                }
+                toPrint += "<p style='border-top: 1px solid #ddd'>" + array[line] + "</p>";
+            }
+        }
+    }
+    console.log(toPrint);
+    $('#instanceDisplay').append(toPrint);
 }
+
