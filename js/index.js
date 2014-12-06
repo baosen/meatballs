@@ -1,7 +1,7 @@
 function getResources() {
 	$('#resourceDisplay').empty();
     $('#resourceTable').empty();
-
+    $('#instanceDisplay').empty();
     $.get("/api/resources.json", function(data) {
         fillResourceTable(data);
     });
