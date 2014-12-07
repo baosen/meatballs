@@ -175,7 +175,7 @@ function displayInstance(json) {
     console.log(instance.name);
     info += "<h3 class=\"headerText\">" + instance.name + '</h3>'
 
-    info += "<p style='border-top: 1px solid #ddd'>instance id: " + instance.id + "</p>";
+    info += "<p class=\"pagination\" style='border-top: 1px solid #ddd'>instance id: " + instance.id + "</p>";
 
     $('#instanceDisplay').append(info);
 
@@ -184,7 +184,7 @@ function displayInstance(json) {
     var array = str.split("\n");
     console.log("array:");
     console.log(array);
-    var toPrint = "";
+    var toPrint = "<table class=\"table table-striped resourceList\" ><tbody><tr> ";
 
     for (line in array) {
         if (array[line] === "") {
@@ -202,15 +202,16 @@ function displayInstance(json) {
                     toPrint += "";
                 }
                 indentation += 1;
-                toPrint += "<p style='border-top: 1px solid #ddd'>" + array[line].substr(0, array[line].length - 1) + "</p>";
+                toPrint += "<td>" + array[line].substr(0, array[line].length - 1) + "</td></tr>";
             } else {
                 for (var i = 0; i < indentation; i += 1) {
                     toPrint += "\t   ";
                 }
-                toPrint += "<p style='border-top: 1px solid #ddd'>" + array[line] + "</p>";
+                toPrint += "<td style='border-top: 1px solid #ddd'>" + array[line] + "</td></tr>";
             }
         }
     }
+    toPrint += " </tbody></table>";
     console.log(toPrint);
     $('#instanceDisplay').append(toPrint);
 }
