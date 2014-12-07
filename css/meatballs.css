@@ -36,24 +36,22 @@ td.resourceHeader {
     font-size: 1.2em;
     vertical-align: middle;
 }
-
+p.instanceId {
+    padding-top: 5px;
+    padding-left: 4px;
+    border-top: 1px solid #ddd
+}
 
 .resourceButtonsAlign {
    text-align: right;
 }
 .btnSpacer {
-    padding-right: 4px;
+    margin-right: 4px;
 }
 .logo{
     width: 32px;
     height: 32px;
     cursor: pointer;
-
-}
-
-.resourceColSpan {
-
-}
 
 .btn .badge {
     margin-left:5px;
@@ -61,6 +59,9 @@ td.resourceHeader {
 
 h3.headerText {
     margin-top: 0px;
+}
+.column2{
+    width:500px;
 }
 
 p.paginator {

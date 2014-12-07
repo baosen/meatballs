@@ -175,7 +175,7 @@ function displayInstance(json) {
     console.log(instance.name);
     info += "<h3 class=\"headerText\">" + instance.name + '</h3>'
 
-    info += "<p class=\"pagination\" style='border-top: 1px solid #ddd'>instance id: " + instance.id + "</p>";
+    info += "<p class=\"instanceId\" style='>Instance id: " + instance.id + "</p>";
 
     $('#instanceDisplay').append(info);
 
