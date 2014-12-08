@@ -167,6 +167,7 @@ function goToResource(link, index) {
     $.get(link, function(data) {
         showResource(data);
     });
+    $('html, body').animate({scrollTop: 0}, 'fast');
 }
 
 
@@ -185,6 +186,7 @@ function getInstance(link) {
         console.log(data);
         displayInstance(data);
     });
+    $('html, body').animate({scrollTop: 0}, 'fast');
 }
 
 function displayInstance(json) {
