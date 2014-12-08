@@ -125,8 +125,29 @@ function showResource(json) {
     for (var key in resource) {
 		var value = resource[key];
 		table += "<td class=\"column2\">" + value.name + "</td>";
-        table += "<td><button class=\"btn  btn-default resourceButtonsAlign\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
+        table += "<td><button class='btn btn-default resourceButtonsAlign\' onclick='showDetails(\"" + value.id + "\")'>Details</button></td>";
+        table += "<td><button class='btn-primary btn resourceButtonsAlign\' onclick=\"getInstance(\'" + value.href + ".json\')\">View</button></td>";
 		table += "</tr>";
+
+        table += "<tr><td><div id =\"" + value.id + "\" style=\"display:none\">";
+        table += "<table class='table'>";
+        table += "<tbody>";
+
+        for(key2 in value) {
+            var value2 = value[key2];
+            if(key2 === 'href') {
+                var url = value2;
+                var last_part = url.substring(url.lastIndexOf('/') + 1);
+                var first_part = url.replace(last_part, "<wbr />");
+                table += "<tr><td>" + key2 + "</td><td>" + first_part + last_part + "</td></tr>";
+            } else {
+                table += "<tr><td>" + key2 + "</td><td>" + value2 + "</td></tr>";
+            }
+        }
+            table += "</tbody>";
+            table += "</table>";
+
+            table += "</div></td></tr>";
     }
     table += "</tbody></table>";
 	$('#resourceDisplay').append(table);
