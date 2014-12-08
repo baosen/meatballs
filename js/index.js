@@ -223,16 +223,24 @@ function displayInstance(json) {
         } else {
             if (array[line].substr(array[line].length - 1) === "{"){
                 console.log("At end of line, Indentation +1");
+                toPrint += "<td style='border-top: 1px solid #ddd'>";
                 for (var i = 0; i < indentation; i += 1) {
-                    toPrint += "";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
                 }
                 indentation += 1;
-                toPrint += "<td>" + array[line].substr(0, array[line].length - 1) + "</td></tr>";
+                toPrint += array[line].substr(0, array[line].length - 1) + "</td></tr>";
             } else {
+                toPrint += "<td style='border-top: 1px solid #ddd'>";
                 for (var i = 0; i < indentation; i += 1) {
-                    toPrint += "\t   ";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
+                    toPrint += "&nbsp";
                 }
-                toPrint += "<td style='border-top: 1px solid #ddd'>" + array[line].split('"').join(' ') + "</td></tr>";
+                toPrint += array[line].split('"').join(' ') + "</td></tr>";
             }
         }
     }
