@@ -27,12 +27,12 @@ Meatballs Web API Browser */
     border-bottom: 1px solid #ddd;
 }
 .resourceList{
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 
 td.resourceHeader {
-    width: 380px;
+    width: 80%;
     font-size: 1.2em;
     vertical-align: middle;
 }
@@ -52,16 +52,17 @@ p.instanceId {
     width: 32px;
     height: 32px;
     cursor: pointer;
+}
 
 .btn .badge {
     margin-left:5px;
 }
 
 h3.headerText {
-    margin-top: 0px;
+    margin-top: 0;
 }
 .column2{
-    width:500px;
+    width:90%;
 }
 
 p.paginator {

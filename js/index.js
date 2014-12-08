@@ -20,7 +20,7 @@ function displayEntries(object) {
             table += "<td class='resourceHeader'>" + value.displayName +  "</td>";
                 table += "<div class=\"resourceButtonsAlign\">";
 		            table += "<td><button class='btn' onclick='showDetails(\"" + value.singular + "\")'>Details</button></td>";
-                    table += "<td>" + '<button class=\"btn btn-primary\" onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">Go to:&nbsp;<span class="badge">4</span></button></td>';
+                    table += "<td>" + '<button class=\"btn btn-primary\" onclick="goToResource(\'' + value.href + '.json\', ' + index + ')">View</button></td>';
                 table += "</div>";
         table += "</tr>";
 
@@ -63,7 +63,7 @@ function showResource(json) {
 	// Build a table displaying data of a resource.
     // Print total, mainly for testing purposes.
     var info = '<h3 class=\"headerText\">' + displayNames[currentIndex] + '</h3>';
-
+    info += "<div style=\"display:inline-block\">";
     info += "<p class=\"paginator\"> Total: " + json.pager.total;
     if (json.pager.pageCount > 1) {
         info += "  Current page: " + json.pager.page + " of " + json.pager.pageCount + "&nbsp;";
@@ -111,6 +111,7 @@ function showResource(json) {
             var addString2 = "<button class=\"btn resourceButtonsAlign\" onclick=\"updateResource(\'" + nextPage + "\')\">Next page</button>";
             info += addString2;
         }
+
         info +="</p>"
     } else {
 
@@ -122,7 +123,7 @@ function showResource(json) {
     table += "<tbody><tr class=\"resourceHeader\">";
     for (var key in resource) {
 		var value = resource[key];
-		table += "<td>" + value.name + "</td>";
+		table += "<td class=\"column2\">" + value.name + "</td>";
         table += "<td><button class=\"btn resourceButtonsAlign\" onclick=\"getInstance(\'" + value.href + ".json\')\">Details</button></td>";
 		table += "</tr>";
     }
@@ -175,7 +176,7 @@ function displayInstance(json) {
     console.log(instance.name);
     info += "<h3 class=\"headerText\">" + instance.name + '</h3>'
 
-    info += "<p class=\"instanceId\" style='>Instance id: " + instance.id + "</p>";
+    info += "<p class=\"instanceId\">Instance id: " + instance.id + "</p>";
 
     $('#instanceDisplay').append(info);
 
@@ -207,7 +208,7 @@ function displayInstance(json) {
                 for (var i = 0; i < indentation; i += 1) {
                     toPrint += "\t   ";
                 }
-                toPrint += "<td style='border-top: 1px solid #ddd'>" + array[line] + "</td></tr>";
+                toPrint += "<td style='border-top: 1px solid #ddd'>" + array[line].split('"').join(' ') + "</td></tr>";
             }
         }
     }
