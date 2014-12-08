@@ -43,7 +43,9 @@ p.instanceId {
 }
 
 .resourceButtonsAlign {
-   text-align: right;
+    float: right;
+    display:inline-block;
+    margin-bottom: 6px;
 }
 .btnSpacer {
     margin-right: 4px;
@@ -64,6 +66,8 @@ h3.headerText {
 .column2{
     width:90%;
 }
+
+.
 
 p.paginator {
     padding-top: 7px;
